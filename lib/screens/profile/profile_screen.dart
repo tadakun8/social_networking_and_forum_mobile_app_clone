@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:social_networking_and_forum_mobile_app_clone/constants.dart';
 import 'package:social_networking_and_forum_mobile_app_clone/screens/profile/components/profile_header.dart';
+import 'package:social_networking_and_forum_mobile_app_clone/screens/profile/components/profile_info.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -12,7 +13,16 @@ class ProfileScreen extends StatelessWidget {
       body: Container(
         padding: EdgeInsets.all(Constants.defaultPadding),
         child: Column(
-          children: const [ProfileHeader()],
+          children: [
+            const ProfileHeader(),
+            SizedBox(
+              height: Constants.defaultPadding * 1.25,
+            ),
+            const SizedBox(
+              height: 200,
+              child: ProfileInfo(),
+            )
+          ],
         ),
       ),
     );
