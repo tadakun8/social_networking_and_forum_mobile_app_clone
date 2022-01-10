@@ -32,7 +32,7 @@ class ProfileScreen extends StatelessWidget {
               SizedBox(
                 height: Constants.defaultPadding * 1.25,
               ),
-              const Schedule()
+              Schedule()
             ],
           ),
         ),

@@ -1,9 +1,15 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
 
 class Schedule extends StatelessWidget {
-  const Schedule({Key? key}) : super(key: key);
+  Schedule({Key? key}) : super(key: key);
+
+  final List<Widget> carousellist = [
+    const ScheduleContent(),
+    const ScheduleContent()
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +44,15 @@ class Schedule extends StatelessWidget {
         //   ),
         //   items: ,
         // ),
-        const ScheduleContent()
+        CarouselSlider(
+          options: CarouselOptions(
+            autoPlay: true,
+            aspectRatio: 1.85,
+            viewportFraction: 0.9,
+            enableInfiniteScroll: false,
+          ),
+          items: carousellist,
+        ),
       ],
     );
   }
@@ -50,6 +64,8 @@ class ScheduleContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: double.infinity,
+      margin: EdgeInsets.all(Constants.defaultPadding / 2),
       padding: EdgeInsets.all(Constants.defaultPadding),
       decoration: BoxDecoration(
         color: Constants.secondaryColor,
