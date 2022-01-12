@@ -59,18 +59,25 @@ class ConnectionPersonInfo extends StatelessWidget {
         color: Colors.transparent,
         borderRadius: BorderRadius.circular(20),
       ),
-      child: ListTile(
-        // To center the leading icon, surround it with a sizedbox and specify the height.
-        leading: const SizedBox(
-          height: double.infinity,
-          child: Icon(
-            Icons.account_circle_outlined,
-            size: 37,
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(20),
+          onTap: () {},
+          child: ListTile(
+            // To center the leading icon, surround it with a sizedbox and specify the height.
+            leading: const SizedBox(
+              height: double.infinity,
+              child: Icon(
+                Icons.account_circle_outlined,
+                size: 37,
+              ),
+            ),
+            title: Text(name),
+            subtitle: Text(profession),
+            trailing: const Icon(Icons.arrow_forward_ios),
           ),
         ),
-        title: Text(name),
-        subtitle: Text(profession),
-        trailing: const Icon(Icons.arrow_forward_ios),
       ),
     );
   }
