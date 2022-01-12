@@ -55,24 +55,84 @@ class InteractionStats extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
+                  Expanded(
+                    child: Container(
+                      padding: EdgeInsets.all(Constants.defaultPadding),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "New Conenct",
+                            style: Theme.of(context)
+                                .textTheme
+                                .subtitle1!
+                                .copyWith(
+                                    color: Constants.textColor.withOpacity(0.8),
+                                    fontWeight: FontWeight.bold),
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                "34",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headline5!
+                                    .copyWith(fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(
+                                height: 60,
+                                width: 60,
+                              )
+                            ],
+                          )
+                        ],
+                      ),
                     ),
-                    width: 120,
-                    height: 120,
                   ),
                   SizedBox(
                     width: Constants.defaultPadding,
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
+                  Expanded(
+                    child: Container(
+                      padding: EdgeInsets.all(Constants.defaultPadding),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Request",
+                            style: Theme.of(context)
+                                .textTheme
+                                .subtitle1!
+                                .copyWith(
+                                    color: Constants.textColor.withOpacity(0.8),
+                                    fontWeight: FontWeight.bold),
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                "34",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headline5!
+                                    .copyWith(fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(
+                                height: 60,
+                                width: 60,
+                              )
+                            ],
+                          )
+                        ],
+                      ),
                     ),
-                    width: 120,
-                    height: 120,
                   ),
                 ],
               )
