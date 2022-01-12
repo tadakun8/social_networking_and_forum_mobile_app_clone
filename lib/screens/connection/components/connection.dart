@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:social_networking_and_forum_mobile_app_clone/constants.dart';
 
 class Connection extends StatelessWidget {
   const Connection({Key? key}) : super(key: key);
@@ -24,17 +25,20 @@ class Connection extends StatelessWidget {
             ),
           ],
         ),
-        const ConnectionPersonInfo(
+        ConnectionPersonInfo(
           name: "Json Morales",
           profession: "Illustrator",
+          imagePath: Constants.account01Path,
         ),
-        const ConnectionPersonInfo(
+        ConnectionPersonInfo(
           name: "Steven Martine",
           profession: "Product Designer",
+          imagePath: Constants.account02Path,
         ),
-        const ConnectionPersonInfo(
+        ConnectionPersonInfo(
           name: "Phillp Morris",
           profession: "Lead Designer",
+          imagePath: Constants.account03Path,
         ),
       ],
     );
@@ -66,13 +70,18 @@ class ConnectionPersonInfo extends StatelessWidget {
           onTap: () {},
           child: ListTile(
             // To center the leading icon, surround it with a sizedbox and specify the height.
-            leading: const SizedBox(
-              height: double.infinity,
-              child: Icon(
-                Icons.account_circle_outlined,
-                size: 37,
-              ),
-            ),
+            leading: SizedBox(
+                height: double.infinity,
+                child: (imagePath) != null
+                    ? Image.asset(
+                        imagePath!,
+                        width: 37,
+                        height: 37,
+                      )
+                    : const Icon(
+                        Icons.account_circle_outlined,
+                        size: 37,
+                      )),
             title: Text(name),
             subtitle: Text(profession),
             trailing: const Icon(Icons.arrow_forward_ios),
