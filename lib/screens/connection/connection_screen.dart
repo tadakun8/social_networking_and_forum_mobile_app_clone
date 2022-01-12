@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:social_networking_and_forum_mobile_app_clone/screens/connection/components/connection.dart';
 import 'package:social_networking_and_forum_mobile_app_clone/screens/connection/components/connection_header.dart';
 import 'package:social_networking_and_forum_mobile_app_clone/screens/connection/components/interaction_stats.dart';
 
@@ -20,7 +21,11 @@ class ConnectionScreen extends StatelessWidget {
               SizedBox(
                 height: Constants.defaultPadding,
               ),
-              const InteractionStats()
+              const InteractionStats(),
+              SizedBox(
+                height: Constants.defaultPadding,
+              ),
+              const Connection()
             ],
           ),
         ),
