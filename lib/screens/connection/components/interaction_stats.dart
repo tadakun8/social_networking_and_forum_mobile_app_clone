@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_networking_and_forum_mobile_app_clone/constants.dart';
+import 'package:social_networking_and_forum_mobile_app_clone/screens/connection/components/line_chart.dart';
 
 class InteractionStats extends StatelessWidget {
   const InteractionStats({Key? key}) : super(key: key);
@@ -32,12 +33,21 @@ class InteractionStats extends StatelessWidget {
           ),
           child: Column(
             children: [
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
+              AspectRatio(
+                aspectRatio: 3 / 2,
+                child: Container(
+                  padding: EdgeInsets.symmetric(
+                    vertical: Constants.defaultPadding,
+                    horizontal: Constants.defaultPadding * 2.25,
+                  ),
+                  // width: 400,
+                  // height: 200,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: StatsChart(),
                 ),
-                child: const Placeholder(),
               ),
               SizedBox(
                 height: Constants.defaultPadding,
