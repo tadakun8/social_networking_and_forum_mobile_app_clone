@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_networking_and_forum_mobile_app_clone/constants.dart';
+import 'package:social_networking_and_forum_mobile_app_clone/screens/schedule/schedule_header.dart';
 
 class ScheduleScreen extends StatelessWidget {
   const ScheduleScreen({Key? key}) : super(key: key);
@@ -12,7 +13,9 @@ class ScheduleScreen extends StatelessWidget {
         child: Container(
           padding: EdgeInsets.all(Constants.defaultPadding),
           child: Column(
-            children: const [Placeholder()],
+            children: const [
+              ScheduleHeader(),
+            ],
           ),
         ),
       ),
