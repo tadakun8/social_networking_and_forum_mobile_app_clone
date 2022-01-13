@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:social_networking_and_forum_mobile_app_clone/screens/connection/connection_screen.dart';
 import 'package:social_networking_and_forum_mobile_app_clone/screens/profile/profile_screen.dart';
 
 void main() {

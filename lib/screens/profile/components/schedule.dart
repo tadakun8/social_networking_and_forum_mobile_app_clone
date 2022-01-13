@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:social_networking_and_forum_mobile_app_clone/screens/schedule/schedule_screen.dart';
 
 import '../../../constants.dart';
 
@@ -26,10 +27,23 @@ class Schedule extends StatelessWidget {
                   .subtitle1!
                   .copyWith(fontWeight: FontWeight.bold),
             ),
-            const Icon(
-              Icons.arrow_forward_ios,
-              color: Colors.grey,
-            ),
+            IconButton(
+              padding: const EdgeInsets.all(0),
+              constraints: const BoxConstraints(),
+              splashRadius: 24,
+              onPressed: () async {
+                await Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) {
+                    return const ScheduleScreen();
+                  }),
+                );
+              },
+              icon: const Icon(
+                Icons.arrow_forward_ios,
+                color: Colors.grey,
+                size: 20,
+              ),
+            )
           ],
         ),
         SizedBox(
