@@ -20,7 +20,7 @@ class ScheduleScreen extends StatelessWidget {
               SizedBox(
                 height: Constants.defaultPadding,
               ),
-              const Calender(),
+              Calender(),
             ],
           ),
         ),
