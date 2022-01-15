@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:social_networking_and_forum_mobile_app_clone/constants.dart';
 import 'package:social_networking_and_forum_mobile_app_clone/screens/schedule/calender.dart';
+import 'package:social_networking_and_forum_mobile_app_clone/screens/schedule/schedule_event_list.dart';
 import 'package:social_networking_and_forum_mobile_app_clone/screens/schedule/schedule_header.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -21,6 +22,10 @@ class ScheduleScreen extends StatelessWidget {
                 height: Constants.defaultPadding,
               ),
               Calender(),
+              SizedBox(
+                height: Constants.defaultPadding,
+              ),
+              ScheduleEventList()
             ],
           ),
         ),

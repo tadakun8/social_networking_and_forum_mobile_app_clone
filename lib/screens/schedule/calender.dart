@@ -10,15 +10,15 @@ int getHashCode(DateTime key) {
 }
 
 final _eventsList = {
-  DateTime.now().subtract(Duration(days: 2)): ['Event A6', 'Event B6'],
+  DateTime.now().subtract(const Duration(days: 2)): ['Event A6', 'Event B6'],
   DateTime.now(): ['Event A7', 'Event B7', 'Event C7', 'Event D7'],
-  DateTime.now().add(Duration(days: 1)): [
+  DateTime.now().add(const Duration(days: 1)): [
     'Event A8',
     'Event B8',
     'Event C8',
     'Event D8'
   ],
-  DateTime.now().add(Duration(days: 3)):
+  DateTime.now().add(const Duration(days: 3)):
       Set.from(['Event A9', 'Event A9', 'Event B9']).toList(),
 };
 
