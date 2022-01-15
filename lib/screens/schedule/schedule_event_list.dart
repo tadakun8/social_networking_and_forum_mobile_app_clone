@@ -73,7 +73,7 @@ class ScheduleEvent extends StatelessWidget {
             style: Theme.of(context)
                 .textTheme
                 .subtitle1!
-                .copyWith(fontWeight: FontWeight.bold),
+                .copyWith(color: Colors.grey[600], fontWeight: FontWeight.bold),
           ),
           SizedBox(
             height: Constants.defaultPadding * 0.75,
