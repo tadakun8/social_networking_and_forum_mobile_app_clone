@@ -25,7 +25,6 @@ class ScheduleScreen extends StatelessWidget {
               SizedBox(
                 height: Constants.defaultPadding,
               ),
-              ScheduleEventList()
             ],
           ),
         ),

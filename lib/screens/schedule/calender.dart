@@ -22,57 +22,95 @@ final _eventsList = {
       Set.from(['Event A9', 'Event A9', 'Event B9']).toList(),
 };
 
-class Calender extends StatelessWidget {
-  Calender({Key? key}) : super(key: key);
+class Calender extends StatefulWidget {
+  const Calender({Key? key}) : super(key: key);
+
+  @override
+  _CalenderState createState() => _CalenderState();
+}
+
+class _CalenderState extends State<Calender> {
+  DateTime _focusedDay = DateTime.now();
+  late DateTime _selectedDay;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedDay = _focusedDay;
+  }
 
   final _events = LinkedHashMap<DateTime, List>(
     equals: isSameDay,
     hashCode: getHashCode,
   )..addAll(_eventsList);
 
-  List getEventForDay(DateTime day) {
+  List _getEventForDay(DateTime day) {
     return _events[day] ?? [];
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(Constants.defaultPadding),
-      decoration: BoxDecoration(
-        color: Constants.secondaryColor,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: TableCalendar(
-        daysOfWeekVisible: false,
-        headerStyle: const HeaderStyle(
-          titleCentered: true,
-          formatButtonVisible: false,
-          titleTextStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-        ),
-        firstDay: DateTime(2020, 1, 1),
-        lastDay: DateTime(2040, 12, 31),
-        focusedDay: DateTime.now(),
-        eventLoader: getEventForDay,
-        calendarBuilders: CalendarBuilders(
-          markerBuilder: (context, date, events) {
-            if (events.isNotEmpty) {
-              return _buildEventsMarker(date, events);
-            }
-          },
-          todayBuilder: (context, date, events) => Container(
-            margin: const EdgeInsets.all(10.0),
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: Constants.textColor,
-              shape: BoxShape.circle,
+    return Column(
+      children: [
+        Container(
+          padding: EdgeInsets.all(Constants.defaultPadding),
+          decoration: BoxDecoration(
+            color: Constants.secondaryColor,
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: TableCalendar(
+            daysOfWeekVisible: false,
+            headerStyle: const HeaderStyle(
+              titleCentered: true,
+              formatButtonVisible: false,
+              titleTextStyle:
+                  TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
             ),
-            child: Text(
-              date.day.toString(),
-              style: const TextStyle(color: Colors.white),
+            firstDay: DateTime(2020, 1, 1),
+            lastDay: DateTime(2040, 12, 31),
+            focusedDay: _focusedDay,
+            eventLoader: _getEventForDay,
+            selectedDayPredicate: (day) {
+              return isSameDay(_selectedDay, day);
+            },
+            onDaySelected: (selectedDay, focusedDay) {
+              if (!isSameDay(_selectedDay, selectedDay)) {
+                setState(() {
+                  _selectedDay = selectedDay;
+                  _focusedDay = focusedDay;
+                });
+              }
+            },
+            calendarBuilders: CalendarBuilders(
+              markerBuilder: (context, date, events) {
+                if (events.isNotEmpty) {
+                  return _buildEventsMarker(date, events);
+                }
+              },
+              todayBuilder: (context, date, events) => Container(
+                margin: const EdgeInsets.all(10.0),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: Constants.textColor,
+                  shape: BoxShape.circle,
+                ),
+                child: Text(
+                  date.day.toString(),
+                  style: const TextStyle(color: Colors.white),
+                ),
+              ),
             ),
           ),
         ),
-      ),
+        ListView(
+          shrinkWrap: true,
+          children: _getEventForDay(_selectedDay)
+              .map((event) => ListTile(
+                    title: Text(event.toString()),
+                  ))
+              .toList(),
+        )
+      ],
     );
   }
 }
