@@ -1,6 +1,8 @@
 import 'dart:collection';
 
 import 'package:flutter/material.dart';
+import 'package:social_networking_and_forum_mobile_app_clone/screens/schedule/components/schedule_event_tile.dart';
+import 'package:social_networking_and_forum_mobile_app_clone/screens/schedule/models/schedule_event.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 import '../../../constants.dart';
@@ -9,18 +11,18 @@ int getHashCode(DateTime key) {
   return key.day * 1000000 + key.month * 10000 + key.year;
 }
 
-final _eventsList = {
-  DateTime.now().subtract(const Duration(days: 2)): ['Event A6', 'Event B6'],
-  DateTime.now(): ['Event A7', 'Event B7', 'Event C7', 'Event D7'],
-  DateTime.now().add(const Duration(days: 1)): [
-    'Event A8',
-    'Event B8',
-    'Event C8',
-    'Event D8'
-  ],
-  DateTime.now().add(const Duration(days: 3)):
-      Set.from(['Event A9', 'Event A9', 'Event B9']).toList(),
-};
+// final _eventsList = {
+//   DateTime.now().subtract(const Duration(days: 2)): ['Event A6', 'Event B6'],
+//   DateTime.now(): ['Event A7', 'Event B7', 'Event C7', 'Event D7'],
+//   DateTime.now().add(const Duration(days: 1)): [
+//     'Event A8',
+//     'Event B8',
+//     'Event C8',
+//     'Event D8'
+//   ],
+//   DateTime.now().add(const Duration(days: 3)):
+//       Set.from(['Event A9', 'Event A9', 'Event B9']).toList(),
+// };
 
 class Calender extends StatefulWidget {
   const Calender({Key? key}) : super(key: key);
@@ -39,12 +41,12 @@ class _CalenderState extends State<Calender> {
     _selectedDay = _focusedDay;
   }
 
-  final _events = LinkedHashMap<DateTime, List>(
+  final _events = LinkedHashMap<DateTime, List<ScheduleEvent>>(
     equals: isSameDay,
     hashCode: getHashCode,
-  )..addAll(_eventsList);
+  )..addAll(ScheduleEvent.sampleScheduleEventList);
 
-  List _getEventForDay(DateTime day) {
+  List<ScheduleEvent> _getEventForDay(DateTime day) {
     return _events[day] ?? [];
   }
 
@@ -105,9 +107,10 @@ class _CalenderState extends State<Calender> {
         ListView(
           shrinkWrap: true,
           children: _getEventForDay(_selectedDay)
-              .map((event) => ListTile(
-                    title: Text(event.toString()),
-                  ))
+              .map((event) => ScheduleEventTile(
+                  eventType: event.eventType,
+                  title: event.title,
+                  time: event.time))
               .toList(),
         )
       ],
