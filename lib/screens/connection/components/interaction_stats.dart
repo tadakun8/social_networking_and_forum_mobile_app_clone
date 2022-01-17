@@ -46,7 +46,7 @@ class InteractionStats extends StatelessWidget {
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  child: StatsChart(),
+                  child: const StatsChart(),
                 ),
               ),
               SizedBox(
@@ -83,7 +83,7 @@ class InteractionStats extends StatelessWidget {
                                     .headline5!
                                     .copyWith(fontWeight: FontWeight.bold),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 60,
                                 width: 60,
                               )
@@ -124,7 +124,7 @@ class InteractionStats extends StatelessWidget {
                                     .headline5!
                                     .copyWith(fontWeight: FontWeight.bold),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 60,
                                 width: 60,
                               )
