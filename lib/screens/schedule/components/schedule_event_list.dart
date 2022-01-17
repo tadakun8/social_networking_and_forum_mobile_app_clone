@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../constants.dart';
+import '../../../constants.dart';
 
 class ScheduleEventList extends StatelessWidget {
   const ScheduleEventList({Key? key}) : super(key: key);
