@@ -1,6 +1,7 @@
 import 'dart:collection';
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:social_networking_and_forum_mobile_app_clone/screens/schedule/components/schedule_event_tile.dart';
 import 'package:social_networking_and_forum_mobile_app_clone/screens/schedule/models/schedule_event.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -53,6 +54,7 @@ class _CalenderState extends State<Calender> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
           padding: EdgeInsets.all(Constants.defaultPadding),
@@ -104,7 +106,29 @@ class _CalenderState extends State<Calender> {
             ),
           ),
         ),
+        SizedBox(
+          height: Constants.defaultPadding * 2,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              // e.g) 18 August
+              DateFormat('d MMMM　').format(_selectedDay),
+              style: Theme.of(context)
+                  .textTheme
+                  .subtitle1!
+                  .copyWith(fontWeight: FontWeight.bold),
+            ),
+            const Icon(
+              Icons.more_horiz,
+              color: Colors.grey,
+            )
+          ],
+        ),
         ListView(
+          physics: const NeverScrollableScrollPhysics(),
+          padding: EdgeInsets.symmetric(vertical: Constants.defaultPadding / 2),
           shrinkWrap: true,
           children: _getEventForDay(_selectedDay)
               .map((event) => ScheduleEventTile(
