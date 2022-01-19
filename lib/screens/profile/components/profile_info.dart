@@ -24,9 +24,12 @@ class ProfileInfo extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(
-                    height: 100,
-                    child: Placeholder(),
+                  Center(
+                    child: Image.asset(
+                      Constants.myProfilePath,
+                      height: 150,
+                      width: 150,
+                    ),
                   ),
                   Text(
                     "Lintang C",
@@ -47,87 +50,98 @@ class ProfileInfo extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                margin: EdgeInsets.only(left: Constants.defaultPadding / 2),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Material(
-                  color: Colors.transparent,
-                  child: InkWell(
-                    onTap: () async {
-                      await Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) {
-                          return const ConnectionScreen();
-                        }),
-                      );
-                    },
-                    child: Padding(
-                      padding: EdgeInsets.all(Constants.defaultPadding),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "Connection",
-                                  style: Theme.of(context).textTheme.subtitle1,
-                                ),
-                                const Icon(
-                                  Icons.arrow_forward_ios,
-                                  color: Colors.grey,
-                                  size: 20,
-                                ),
-                              ]),
-                          Text(
-                            "120",
-                            style: Theme.of(context)
-                                .textTheme
-                                .headline5!
-                                .copyWith(fontWeight: FontWeight.bold),
-                          ),
-                        ],
+              Expanded(
+                flex: 1,
+                child: Container(
+                  margin: EdgeInsets.only(left: Constants.defaultPadding / 2),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      onTap: () async {
+                        await Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) {
+                            return const ConnectionScreen();
+                          }),
+                        );
+                      },
+                      child: Padding(
+                        padding: EdgeInsets.all(Constants.defaultPadding),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "Connection",
+                                    style:
+                                        Theme.of(context).textTheme.subtitle1,
+                                  ),
+                                  const Icon(
+                                    Icons.arrow_forward_ios,
+                                    color: Colors.grey,
+                                    size: 20,
+                                  ),
+                                ]),
+                            Text(
+                              "120",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headline5!
+                                  .copyWith(fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
                 ),
               ),
-              Container(
-                margin: EdgeInsets.only(left: Constants.defaultPadding / 2),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.all(Constants.defaultPadding),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Level",
-                              style: Theme.of(context).textTheme.subtitle1,
-                            ),
-                            const Icon(
-                              Icons.arrow_forward_ios,
-                              color: Colors.grey,
-                              size: 20,
-                            ),
-                          ]),
-                      Text(
-                        "Medium",
-                        style: Theme.of(context)
-                            .textTheme
-                            .headline5!
-                            .copyWith(fontWeight: FontWeight.bold),
-                      ),
-                    ],
+              SizedBox(
+                height: Constants.defaultPadding,
+              ),
+              Expanded(
+                flex: 1,
+                child: Container(
+                  margin: EdgeInsets.only(left: Constants.defaultPadding / 2),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.all(Constants.defaultPadding),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Level",
+                                style: Theme.of(context).textTheme.subtitle1,
+                              ),
+                              const Icon(
+                                Icons.arrow_forward_ios,
+                                color: Colors.grey,
+                                size: 20,
+                              ),
+                            ]),
+                        Text(
+                          "Medium",
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline5!
+                              .copyWith(fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

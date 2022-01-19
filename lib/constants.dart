@@ -7,6 +7,7 @@ class Constants {
   static double defaultPadding = 16;
 
   static String assetsPath = "assets/";
+  static String myProfilePath = assetsPath + "my_profile.png";
   static String account01Path = assetsPath + "account_01.png";
   static String account02Path = assetsPath + "account_02.png";
   static String account03Path = assetsPath + "account_03.png";

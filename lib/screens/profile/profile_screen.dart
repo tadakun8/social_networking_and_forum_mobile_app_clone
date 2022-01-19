@@ -22,7 +22,7 @@ class ProfileScreen extends StatelessWidget {
                 height: Constants.defaultPadding * 1.25,
               ),
               const SizedBox(
-                height: 200,
+                height: 250,
                 child: ProfileInfo(),
               ),
               SizedBox(
