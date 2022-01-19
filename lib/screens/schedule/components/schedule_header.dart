@@ -9,8 +9,18 @@ class ScheduleHeader extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(top: Constants.defaultPadding * 2),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+          IconButton(
+            onPressed: () async {
+              Navigator.of(context).pop();
+            },
+            icon: const Icon(
+              Icons.arrow_back_ios,
+              color: Colors.grey,
+              size: 20,
+            ),
+          ),
           Text(
             "Connection",
             style: Theme.of(context)
@@ -18,6 +28,10 @@ class ScheduleHeader extends StatelessWidget {
                 .headline5!
                 .copyWith(fontWeight: FontWeight.bold),
           ),
+          const SizedBox(
+            height: 20,
+            width: 20,
+          )
         ],
       ),
     );
