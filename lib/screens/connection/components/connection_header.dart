@@ -10,8 +10,20 @@ class ConnectionHeader extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(top: Constants.defaultPadding * 2),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+          IconButton(
+            padding: const EdgeInsets.all(0),
+            constraints: const BoxConstraints(),
+            onPressed: () async {
+              Navigator.of(context).pop();
+            },
+            icon: const Icon(
+              Icons.arrow_back_ios,
+              color: Colors.grey,
+              size: 20,
+            ),
+          ),
           Text(
             "Connection",
             style: Theme.of(context)
@@ -19,6 +31,10 @@ class ConnectionHeader extends StatelessWidget {
                 .headline5!
                 .copyWith(fontWeight: FontWeight.bold),
           ),
+          const SizedBox(
+            height: 20,
+            width: 20,
+          )
         ],
       ),
     );
