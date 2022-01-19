@@ -12,6 +12,8 @@ class ScheduleHeader extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           IconButton(
+            padding: const EdgeInsets.all(0),
+            constraints: const BoxConstraints(),
             onPressed: () async {
               Navigator.of(context).pop();
             },
