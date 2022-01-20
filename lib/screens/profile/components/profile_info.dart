@@ -1,9 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_image_stack/flutter_image_stack.dart';
 import 'package:social_networking_and_forum_mobile_app_clone/constants.dart';
 import 'package:social_networking_and_forum_mobile_app_clone/screens/connection/connection_screen.dart';
 
 class ProfileInfo extends StatelessWidget {
-  const ProfileInfo({Key? key}) : super(key: key);
+  ProfileInfo({Key? key}) : super(key: key);
+
+  final List<Widget> _connectionImage = [
+    CircleAvatar(
+      backgroundImage: AssetImage(Constants.account01Path),
+      backgroundColor: Colors.transparent,
+    ),
+    CircleAvatar(
+      backgroundImage: AssetImage(Constants.account02Path),
+      backgroundColor: Colors.transparent,
+    ),
+    CircleAvatar(
+      backgroundImage: AssetImage(Constants.account03Path),
+      backgroundColor: Colors.transparent,
+      foregroundColor: Colors.transparent,
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -89,13 +106,24 @@ class ProfileInfo extends StatelessWidget {
                                     size: 20,
                                   ),
                                 ]),
-                            Text(
-                              "120",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headline5!
-                                  .copyWith(fontWeight: FontWeight.bold),
-                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "120",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headline5!
+                                      .copyWith(fontWeight: FontWeight.bold),
+                                ),
+                                FlutterImageStack.widgets(
+                                  children: _connectionImage,
+                                  totalCount: _connectionImage.length,
+                                  itemRadius: 35,
+                                  itemBorderColor: Colors.transparent,
+                                )
+                              ],
+                            )
                           ],
                         ),
                       ),
