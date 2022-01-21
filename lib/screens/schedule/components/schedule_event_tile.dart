@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_image_stack/flutter_image_stack.dart';
 
 import '../../../constants.dart';
 
 class ScheduleEventTile extends StatelessWidget {
-  const ScheduleEventTile({
+  ScheduleEventTile({
     Key? key,
     required this.eventType,
     required this.title,
@@ -13,6 +14,22 @@ class ScheduleEventTile extends StatelessWidget {
   final String eventType;
   final String title;
   final String time;
+
+  final List<Widget> _connectionImage = [
+    CircleAvatar(
+      backgroundImage: AssetImage(Constants.account01Path),
+      backgroundColor: Colors.transparent,
+    ),
+    CircleAvatar(
+      backgroundImage: AssetImage(Constants.account02Path),
+      backgroundColor: Colors.transparent,
+    ),
+    CircleAvatar(
+      backgroundImage: AssetImage(Constants.account03Path),
+      backgroundColor: Colors.transparent,
+      foregroundColor: Colors.transparent,
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +64,7 @@ class ScheduleEventTile extends StatelessWidget {
             height: Constants.defaultPadding * 0.75,
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
                 padding: EdgeInsets.symmetric(
@@ -63,6 +81,26 @@ class ScheduleEventTile extends StatelessWidget {
                       ),
                 ),
               ),
+              Row(
+                children: [
+                  FlutterImageStack.widgets(
+                    children: _connectionImage,
+                    totalCount: _connectionImage.length,
+                    itemRadius: 35,
+                    itemBorderColor: Colors.transparent,
+                  ),
+                  SizedBox(
+                    width: Constants.defaultPadding / 2,
+                  ),
+                  Text(
+                    "+ 26",
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline6!
+                        .copyWith(fontWeight: FontWeight.bold),
+                  )
+                ],
+              )
             ],
           )
         ],
