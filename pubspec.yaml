@@ -47,6 +47,8 @@ dependencies:
   
   flutter_image_stack: ^0.0.6
 
+  google_nav_bar: ^5.0.5
+
 
 dev_dependencies:
   flutter_test:

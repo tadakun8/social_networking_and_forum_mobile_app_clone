@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_networking_and_forum_mobile_app_clone/constants.dart';
+import 'package:social_networking_and_forum_mobile_app_clone/screens/profile/components/floating_bottom_bar.dart';
 import 'package:social_networking_and_forum_mobile_app_clone/screens/profile/components/interest.dart';
 import 'package:social_networking_and_forum_mobile_app_clone/screens/profile/components/profile_header.dart';
 import 'package:social_networking_and_forum_mobile_app_clone/screens/profile/components/profile_info.dart';
@@ -32,7 +33,11 @@ class ProfileScreen extends StatelessWidget {
               SizedBox(
                 height: Constants.defaultPadding * 1.25,
               ),
-              Schedule()
+              Schedule(),
+              SizedBox(
+                height: Constants.defaultPadding * 1.25,
+              ),
+              const FloatingBottomBar(),
             ],
           ),
         ),
