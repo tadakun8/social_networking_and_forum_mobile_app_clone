@@ -11,22 +11,28 @@ class ScheduleScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Constants.primaryColor,
-      body: SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.all(Constants.defaultPadding),
-          child: Column(
-            children: [
-              const ScheduleHeader(),
-              SizedBox(
-                height: Constants.defaultPadding,
-              ),
-              const Calender(),
-              SizedBox(
-                height: Constants.defaultPadding,
-              ),
-            ],
+      body: NotificationListener<OverscrollIndicatorNotification>(
+        child: SingleChildScrollView(
+          child: Container(
+            padding: EdgeInsets.all(Constants.defaultPadding),
+            child: Column(
+              children: [
+                const ScheduleHeader(),
+                SizedBox(
+                  height: Constants.defaultPadding,
+                ),
+                const Calender(),
+                SizedBox(
+                  height: Constants.defaultPadding,
+                ),
+              ],
+            ),
           ),
         ),
+        onNotification: (OverscrollIndicatorNotification notification) {
+          notification.disallowIndicator();
+          return false;
+        },
       ),
     );
   }

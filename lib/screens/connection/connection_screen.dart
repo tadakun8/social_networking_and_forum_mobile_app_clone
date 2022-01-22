@@ -12,23 +12,29 @@ class ConnectionScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Constants.primaryColor,
-      body: SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.all(Constants.defaultPadding),
-          child: Column(
-            children: [
-              const ConnectionHeader(),
-              SizedBox(
-                height: Constants.defaultPadding,
-              ),
-              const InteractionStats(),
-              SizedBox(
-                height: Constants.defaultPadding,
-              ),
-              const Connection()
-            ],
+      body: NotificationListener<OverscrollIndicatorNotification>(
+        child: SingleChildScrollView(
+          child: Container(
+            padding: EdgeInsets.all(Constants.defaultPadding),
+            child: Column(
+              children: [
+                const ConnectionHeader(),
+                SizedBox(
+                  height: Constants.defaultPadding,
+                ),
+                const InteractionStats(),
+                SizedBox(
+                  height: Constants.defaultPadding,
+                ),
+                const Connection()
+              ],
+            ),
           ),
         ),
+        onNotification: (OverscrollIndicatorNotification notification) {
+          notification.disallowIndicator();
+          return false;
+        },
       ),
     );
   }

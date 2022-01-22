@@ -13,34 +13,41 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Constants.primaryColor,
-      body: SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.all(Constants.defaultPadding),
-          child: Column(
-            children: [
-              const ProfileHeader(),
-              SizedBox(
-                height: Constants.defaultPadding * 1.25,
-              ),
-              SizedBox(
-                height: 250,
-                child: ProfileInfo(),
-              ),
-              SizedBox(
-                height: Constants.defaultPadding * 1.25,
-              ),
-              const Interest(),
-              SizedBox(
-                height: Constants.defaultPadding * 1.25,
-              ),
-              Schedule(),
-              SizedBox(
-                height: Constants.defaultPadding * 1.25,
-              ),
-              const FloatingBottomBar(),
-            ],
+      // Wrap NoficationListener<OverscrollIndicatorNotification> to remove splash effect at last scroll
+      body: NotificationListener<OverscrollIndicatorNotification>(
+        child: SingleChildScrollView(
+          child: Container(
+            padding: EdgeInsets.all(Constants.defaultPadding),
+            child: Column(
+              children: [
+                const ProfileHeader(),
+                SizedBox(
+                  height: Constants.defaultPadding * 1.25,
+                ),
+                SizedBox(
+                  height: 250,
+                  child: ProfileInfo(),
+                ),
+                SizedBox(
+                  height: Constants.defaultPadding * 1.25,
+                ),
+                const Interest(),
+                SizedBox(
+                  height: Constants.defaultPadding * 1.25,
+                ),
+                Schedule(),
+                SizedBox(
+                  height: Constants.defaultPadding * 1.25,
+                ),
+                const FloatingBottomBar(),
+              ],
+            ),
           ),
         ),
+        onNotification: (OverscrollIndicatorNotification notification) {
+          notification.disallowIndicator();
+          return false;
+        },
       ),
     );
   }
