@@ -31,22 +31,22 @@ class _FloatingBottomBarState extends State<FloatingBottomBar> {
           color: Colors.grey[600],
           tabs: const [
             GButton(
-              icon: Icons.home,
+              icon: Icons.info,
               iconActiveColor: Colors.yellow,
-              text: 'Home',
+              text: 'info',
             ),
             GButton(
-              icon: Icons.home,
+              icon: Icons.language,
               iconActiveColor: Colors.yellow,
-              text: 'Likes',
+              text: 'language',
             ),
             GButton(
-              icon: Icons.search,
+              icon: Icons.chat_bubble,
               iconActiveColor: Colors.yellow,
-              text: 'Search',
+              text: 'Chat',
             ),
             GButton(
-              icon: Icons.home,
+              icon: Icons.person,
               iconActiveColor: Colors.yellow,
               text: 'Profile',
             ),
