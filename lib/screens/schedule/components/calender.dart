@@ -12,19 +12,6 @@ int getHashCode(DateTime key) {
   return key.day * 1000000 + key.month * 10000 + key.year;
 }
 
-// final _eventsList = {
-//   DateTime.now().subtract(const Duration(days: 2)): ['Event A6', 'Event B6'],
-//   DateTime.now(): ['Event A7', 'Event B7', 'Event C7', 'Event D7'],
-//   DateTime.now().add(const Duration(days: 1)): [
-//     'Event A8',
-//     'Event B8',
-//     'Event C8',
-//     'Event D8'
-//   ],
-//   DateTime.now().add(const Duration(days: 3)):
-//       Set.from(['Event A9', 'Event A9', 'Event B9']).toList(),
-// };
-
 class Calender extends StatefulWidget {
   const Calender({Key? key}) : super(key: key);
 
@@ -95,11 +82,23 @@ class _CalenderState extends State<Calender> {
                 margin: const EdgeInsets.all(10.0),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: Constants.textColor,
+                  color: Constants.textColor.withOpacity(0.5),
                   shape: BoxShape.circle,
                 ),
                 child: Text(
                   date.day.toString(),
+                  style: const TextStyle(color: Colors.white),
+                ),
+              ),
+              selectedBuilder: (context, day, focusedDay) => Container(
+                margin: const EdgeInsets.all(10.0),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: Constants.textColor,
+                  shape: BoxShape.circle,
+                ),
+                child: Text(
+                  day.day.toString(),
                   style: const TextStyle(color: Colors.white),
                 ),
               ),
