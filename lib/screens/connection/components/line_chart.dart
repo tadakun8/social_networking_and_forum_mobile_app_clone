@@ -73,7 +73,23 @@ class StatsChart extends StatelessWidget {
   LineChartData sampleData2() => LineChartData(
         lineTouchData: LineTouchData(
           touchTooltipData: LineTouchTooltipData(
-            tooltipBgColor: Colors.blueGrey.withOpacity(0.8),
+            tooltipPadding:
+                const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+            tooltipRoundedRadius: 15,
+            tooltipBgColor: Constants.textColor,
+            getTooltipItems: (List<LineBarSpot> touchedBarSpots) {
+              return touchedBarSpots.map((barSpot) {
+                final flSpot = barSpot;
+                return LineTooltipItem(
+                  flSpot.y.toInt().toString() + "%",
+                  const TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                );
+              }).toList();
+            },
           ),
           // touchCallback: (LineTouchResponse touchResponse?) {},
           handleBuiltInTouches: true,
