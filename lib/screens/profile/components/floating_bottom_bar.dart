@@ -10,7 +10,7 @@ class FloatingBottomBar extends StatefulWidget {
 }
 
 class _FloatingBottomBarState extends State<FloatingBottomBar> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 3;
 
   @override
   Widget build(BuildContext context) {
