@@ -17,21 +17,29 @@ class ProfileScreen extends StatelessWidget {
       body: NotificationListener<OverscrollIndicatorNotification>(
         child: SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.all(Constants.defaultPadding),
+            padding: EdgeInsets.symmetric(vertical: Constants.defaultPadding),
             child: Column(
               children: [
-                const ProfileHeader(),
-                SizedBox(
-                  height: Constants.defaultPadding * 1.25,
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: Constants.defaultPadding),
+                  child: Column(
+                    children: [
+                      const ProfileHeader(),
+                      SizedBox(
+                        height: Constants.defaultPadding * 1.25,
+                      ),
+                      SizedBox(
+                        height: 250,
+                        child: ProfileInfo(),
+                      ),
+                      SizedBox(
+                        height: Constants.defaultPadding * 1.25,
+                      ),
+                      const Interest(),
+                    ],
+                  ),
                 ),
-                SizedBox(
-                  height: 250,
-                  child: ProfileInfo(),
-                ),
-                SizedBox(
-                  height: Constants.defaultPadding * 1.25,
-                ),
-                const Interest(),
                 SizedBox(
                   height: Constants.defaultPadding * 1.25,
                 ),
@@ -39,7 +47,11 @@ class ProfileScreen extends StatelessWidget {
                 SizedBox(
                   height: Constants.defaultPadding * 1.25,
                 ),
-                const FloatingBottomBar(),
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: Constants.defaultPadding),
+                  child: const FloatingBottomBar(),
+                )
               ],
             ),
           ),

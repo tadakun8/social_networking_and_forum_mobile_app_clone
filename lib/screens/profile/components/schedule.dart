@@ -17,34 +17,37 @@ class Schedule extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              "Schedule",
-              style: Theme.of(context)
-                  .textTheme
-                  .subtitle1!
-                  .copyWith(fontWeight: FontWeight.bold),
-            ),
-            IconButton(
-              padding: const EdgeInsets.all(0),
-              constraints: const BoxConstraints(),
-              splashRadius: 24,
-              onPressed: () async {
-                await Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) {
-                    return const ScheduleScreen();
-                  }),
-                );
-              },
-              icon: const Icon(
-                Icons.arrow_forward_ios,
-                color: Colors.grey,
-                size: 20,
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: Constants.defaultPadding),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "Schedule",
+                style: Theme.of(context)
+                    .textTheme
+                    .subtitle1!
+                    .copyWith(fontWeight: FontWeight.bold),
               ),
-            )
-          ],
+              IconButton(
+                padding: const EdgeInsets.all(0),
+                constraints: const BoxConstraints(),
+                splashRadius: 24,
+                onPressed: () async {
+                  await Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) {
+                      return const ScheduleScreen();
+                    }),
+                  );
+                },
+                icon: const Icon(
+                  Icons.arrow_forward_ios,
+                  color: Colors.grey,
+                  size: 20,
+                ),
+              )
+            ],
+          ),
         ),
         SizedBox(
           height: Constants.defaultPadding,
@@ -61,7 +64,8 @@ class Schedule extends StatelessWidget {
         CarouselSlider(
           options: CarouselOptions(
             autoPlay: true,
-            aspectRatio: 1.85,
+            disableCenter: true,
+            aspectRatio: 1 / 0.5,
             viewportFraction: 0.9,
             enableInfiniteScroll: false,
           ),
@@ -79,7 +83,7 @@ class ScheduleContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: EdgeInsets.all(Constants.defaultPadding / 2),
+      margin: EdgeInsets.only(right: Constants.defaultPadding * 0.75),
       padding: EdgeInsets.all(Constants.defaultPadding),
       decoration: BoxDecoration(
         color: Constants.secondaryColor,
