@@ -75,6 +75,7 @@ class InteractionStats extends StatelessWidget {
                                     fontWeight: FontWeight.bold),
                           ),
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
                                 "34",
@@ -83,10 +84,13 @@ class InteractionStats extends StatelessWidget {
                                     .headline5!
                                     .copyWith(fontWeight: FontWeight.bold),
                               ),
-                              const SizedBox(
-                                height: 60,
-                                width: 60,
-                              )
+                              Text(
+                                "+ 3%",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headline5!
+                                    .copyWith(fontWeight: FontWeight.bold),
+                              ),
                             ],
                           )
                         ],
@@ -116,6 +120,7 @@ class InteractionStats extends StatelessWidget {
                                     fontWeight: FontWeight.bold),
                           ),
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
                                 "34",
@@ -124,10 +129,13 @@ class InteractionStats extends StatelessWidget {
                                     .headline5!
                                     .copyWith(fontWeight: FontWeight.bold),
                               ),
-                              const SizedBox(
-                                height: 60,
-                                width: 60,
-                              )
+                              Text(
+                                "+ 3%",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headline5!
+                                    .copyWith(fontWeight: FontWeight.bold),
+                              ),
                             ],
                           )
                         ],
